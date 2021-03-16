@@ -4,16 +4,16 @@ import Story from "./Story"
 
 const MadLibGame = () => {
 
-let storyWordsTest = {
-    color: "colorWord", 
-    adjective: "adjectiveWord",
-    noun: "nounWord", 
-    verb: "verbWord"
+let storyWordsStart = {
+    color: "", 
+    adjective: "",
+    noun: "", 
+    verb: ""
 }
 
 const [showStory, setShowStory] = useState(false)
 const [showForm, setShowForm] = useState(true)
-const [storyWords, setStoryWords] = useState(storyWordsTest)
+const [storyWords, setStoryWords] = useState(storyWordsStart)
 
 const createStory = formData => {
     setStoryWords(formData)
@@ -21,7 +21,10 @@ const createStory = formData => {
     setShowStory(true)
 }
 
-// Story comp shows answers from added to story sentance that is then show when button clicked
+const restartGame = () => {
+    setShowStory(false)
+    setShowForm(true)
+}
 
     return (
         <div>
@@ -30,7 +33,7 @@ const createStory = formData => {
             {showForm && <MadLibForm createStory={createStory} />}
             </div>
             <div>
-            {showStory && <Story storyWords={storyWords} />}
+            {showStory && <Story storyWords={storyWords} restartGame={restartGame} />}
             </div>
         </div>
     )
