@@ -1,10 +1,10 @@
 import React from "react";
 
-const Story = () => {
+const Story = ({storyWords}) => {
 
     return (
         <div>
-            <h3>There once was a COLOR ADJECTIVE NOUN who loved to VERB.</h3>
+            <h3>There once was a {storyWords.color} {storyWords.adjective} {storyWords.noun} who loved to {storyWords.verb}.</h3>
             <button>Restart</button>
         </div>
     )
